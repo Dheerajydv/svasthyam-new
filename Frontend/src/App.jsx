@@ -1,34 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { FeaturesSection } from "./components/FeatureSection"
+import Header from "./components/Header"
+import { HeroSection } from "./components/HeroSection"
+import { HowItWorksSection } from "./components/HowItWorksSection"
+import BlobCursor from "./components/BlobCursor"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <body>
+      <BlobCursor
+        blobType="circle"
+        fillColor="#22c55e"
+        trailCount={3}
+        sizes={[50, 100, 60]}
+        innerSizes={[20, 35, 25]}
+        innerColor="#22c55e"
+        opacities={[0.3, 0.3, 0.3]}
+        shadowColor="#3B82F6"
+        shadowBlur={5}
+        shadowOffsetX={10}
+        shadowOffsetY={10}
+        filterStdDeviation={30}
+        useFilter={true}
+        fastDuration={0.1}
+        slowDuration={0.5}
+        zIndex={999999}
+      />
+      <div className="relative h-screen">
+        <Header />
+        <HeroSection />
+        <FeaturesSection />
+        <HowItWorksSection />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </body>
   )
 }
 
